@@ -540,7 +540,8 @@ button:hover {
 .forms .input-container input {
   height: 50px;
 }
-.forms input.input-error {
+.forms input.input-error,
+.forms textarea.input-error {
   border: var(--border-width) solid red;
 }
 

@@ -42,6 +42,12 @@
             </li>
 
             <li class="nav-item">
+                <a href="#" class="nav-link" id="contatoBtn">
+                    <i class="fas fa-envelope"></i>
+                    <span class="link-text">Contato</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="#" class="nav-link" id="grupoBtn">
                     <i class="fas fa-users"></i>
                     <span class="link-text">Grupo 1</span>
@@ -54,6 +60,7 @@
 
     <!-- Modais -->
     <div class="overlay" id="overlay"></div>
+
     <div class="modal forms" id="forms">
         <h2>Adicionar novo card</h2>
         <form action="" autocomplete="off">
@@ -73,12 +80,15 @@
                 <textarea rows="10" maxlength="410" spellcheck="true" placeholder=" " id="desc"
                     name="descricao"></textarea>
                 <label for="desc">Descrição</label>
+                <span class="error-message"></span>
             </div>
+
             <div class="input-container">
                 <input type="text" name="urlImg" id="img" placeholder=" ">
                 <label for="img">Url da imagem</label>
                 <span class="error-message"></span>
             </div>
+
             <div class="flex radio">
                 <input type="radio" name="jaEstive" id="been" value="true" checked>
                 <label for="been">Já estive aqui!</label>
@@ -114,7 +124,7 @@
         </p>
         <h5>Tema e código base</h5>
         <p>Rodrigo Brasil
-        <a href="https://github.com/rodrigo-brasil" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/rodrigo-brasil" target="_blank"><i class="fab fa-github"></i></a>
         </p>
         <p>Breno
             <a href="https://github.com/Brenex000006" target="_blank"><i class="fab fa-github"></i></a>
@@ -142,9 +152,34 @@
         </form>
     </div>
 
+    <div class="modal forms" id="contato">
+        <h2>Como posso ajuda-lo?</h2>
+        <form action="" autocomplete="off">
+            <div class="input-container">
+                <input type="text" id="contato_nome" name="contato_nome" placeholder=" ">
+                <label for="contato_nome">Nome</label>
+                <span class="error-message"></span>
+            </div>
+            <div class="input-container">
+                <input type="email" id="contato_email" name="contato_email" placeholder=" ">
+                <label for="contato_email">email</label>
+                <span class="error-message"></span>
+            </div>
+
+            <div class="input-container">
+                <textarea rows="10" maxlength="410" spellcheck="true" placeholder=" " id="contact_message"
+                    name="message"></textarea>
+                <label for="message">Mensagem</label>
+                <span class="error-message"></span>
+            </div>
+            <button type="submit" class="btn" id='contatoSubmit'>Enviar</button>
+            <button type="reset" class="btn cancelar" id='contatoCancel'>Cancelar</button>
+        </form>
+    </div>
+
 
     <main>
-<!-- header -->
+        <!-- header -->
         <header>
             <h1>Meus Lugares <i class="fas fa-map-marked"></i></h1>
             <div>

@@ -5,6 +5,7 @@ const overlay = document.querySelector('.overlay');
 const div_forms = document.getElementById('forms');
 const div_login = document.getElementById('login');
 const div_grupo = document.getElementById('grupo');
+const div_contato = document.getElementById('contato');
 const cardsContainer = document.getElementById('cards-container');
 const btnAdd = document.getElementById('addCard');
 const btnFormCardCancel = document.getElementById('addCardCancel');
@@ -15,6 +16,8 @@ const btnFilter = document.getElementById('filter');
 const filterModal = document.getElementById('filterModal');
 const btnUser = document.getElementById('user');
 const btnLoginCancel = document.getElementById('loginCancel');
+const btnContatoCancel = document.getElementById('contatoCancel');
+const btnContato = document.getElementById('contatoBtn');
 
 /* Funções Gerais */
 
@@ -103,7 +106,7 @@ function mudarClassError(elemento, status, textError = '') {
 
 /* function para validar o forms */
 function formValidador(form) {
-  const inputs = Array.from(form.querySelectorAll('input:not([type=radio])'));
+  const inputs = Array.from(form.querySelectorAll('input:not([type=radio]) , textarea'));
   inputs.forEach(input => {
     if (input.value == '') {
       mudarClassError(input, false, 'Campo em branco!')
@@ -153,6 +156,7 @@ function fecharModais() {
   div_forms.classList.remove('show');
   div_login.classList.remove('show');
   div_grupo.classList.remove('show');
+  div_contato.classList.remove('show');
   Array.from(document.querySelectorAll('form')).forEach(form => form.reset());
   const todosCards = Array.from(cardsContainer.querySelectorAll('.card'));
   todosCards.forEach(card => card.classList.remove('remover'));
@@ -202,6 +206,13 @@ div_login.querySelector('form').addEventListener('submit', (e) => {
     fecharForms(div_login);
   }
 });
+div_contato.querySelector('form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (formValidador(div_contato)) {
+    e.target.reset();
+    fecharForms(div_contato);
+  }
+});
 
 btnFormCardCancel.addEventListener('click', (e) => {
   Array.from(document.getElementsByClassName('input-error')).forEach(input => input.classList.remove('input-error'));
@@ -215,7 +226,25 @@ btnLoginCancel.addEventListener('click', (e) => {
   fecharForms(div_login)
 })
 
+btnContatoCancel.addEventListener('click', (e) => {
+  Array.from(document.getElementsByClassName('input-error')).forEach(input => input.classList.remove('input-error'));
+  Array.from(document.getElementsByClassName('error-message')).forEach(input => input.innerText = '');
+  fecharForms(div_contato)
+})
+
 Array.from(div_forms.querySelector('form').querySelectorAll('input:not([type=radio])')).forEach(input => {
+  input.addEventListener('input', (e) => {
+    if (e.target.value == '') {
+      e.target.classList.add('input-error');
+      e.target.parentElement.querySelector('.error-message').innerText = 'Campo em branco!'
+    }
+    else {
+      e.target.classList.remove('input-error');
+      e.target.parentElement.querySelector('.error-message').innerText = ''
+    }
+  })
+})
+Array.from(div_contato.querySelector('form').querySelectorAll('input , textarea')).forEach(input => {
   input.addEventListener('input', (e) => {
     if (e.target.value == '') {
       e.target.classList.add('input-error');
@@ -253,6 +282,18 @@ btnUser.addEventListener('click', () => {
   div_login.classList.add('show');
 })
 
+btnGrupo.addEventListener('click', () => {
+  fecharModais();
+  overlay.classList.add('show');
+  div_grupo.classList.add('show');
+})
+
+btnContato.addEventListener('click', () => {
+  fecharModais();
+  overlay.classList.add('show');
+  div_contato.classList.add('show');
+})
+
 overlay.addEventListener('click', () => {
   fecharModais();
 })
@@ -263,10 +304,6 @@ btnRemoverCard.addEventListener('click', (e) => {
   setTimeout(removerDeletarCard, 500);
 })
 
-btnGrupo.addEventListener('click', () => {
-  overlay.classList.add('show');
-  div_grupo.classList.add('show');
-})
 
 document.querySelector('.radio input[type=radio]#been').addEventListener('click', (e) => {
   if (e.target.checked)
