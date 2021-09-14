@@ -1,6 +1,6 @@
 ﻿# **Checkpoint 01 - Front-end II curso Digital House**
  
- ## Link do projeto concluido **https://rodrigo-brasil.github.io/Frontend2-CheckPoint1/**
+ ## Link do projeto: **https://rodrigo-brasil.github.io/Frontend2-CheckPoint1/**
 
 ## Esta atividade tem como objetivo servir como primeiro instrumento avaliativo da disciplina. 
 ### Em Grupo: 
