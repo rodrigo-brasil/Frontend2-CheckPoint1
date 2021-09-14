@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.1/css/all.css">
+    <script defer src="./js/app.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/0f7ed121de.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="logo">
+                <a href="#" class="nav-link">
+                    <span class="link-text logo-text">CheckPoint1</span>
+                    <i class="fas fa-list"></i>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="user">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="link-text">Conta</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="addCard">
+                    <i class="fas fa-plus"></i>
+                    <span class="link-text">Adicionar</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="removerCard">
+                    <i class="fas fa-minus"></i>
+                    <span class="link-text">Remover</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="grupoBtn">
+                    <i class="fas fa-users"></i>
+                    <span class="link-text">Grupo 1</span>
+                </a>
+            </li>
+
+
+        </ul>
+    </nav>
+
+    <!-- Modais -->
+    <div class="overlay" id="overlay"></div>
+    <div class="modal forms" id="forms">
+        <h2>Adicionar novo card</h2>
+        <form action="" autocomplete="off">
+            <div class="input-container">
+                <input type="text" id="titulo" name="titulo" placeholder=" ">
+                <label for="titulo">Nome</label>
+                <span class="error-message"></span>
+            </div>
+
+            <div class="input-container">
+                <input type="text" id="cidade" name="cidade" placeholder=" ">
+                <label for="titulo">Cidade</label>
+                <span class="error-message"></span>
+            </div>
+
+            <div class="input-container">
+                <textarea rows="10" maxlength="410" spellcheck="true" placeholder=" " id="desc"
+                    name="descricao"></textarea>
+                <label for="desc">Descrição</label>
+            </div>
+            <div class="input-container">
+                <input type="text" name="urlImg" id="img" placeholder=" ">
+                <label for="img">Url da imagem</label>
+                <span class="error-message"></span>
+            </div>
+            <div class="flex radio">
+                <input type="radio" name="jaEstive" id="been" value="true" checked>
+                <label for="been">Já estive aqui!</label>
+                <input type="radio" name="jaEstive" id="wish" value="false">
+                <label for="wish">Quero ir!</label>
+            </div>
+            <div class="avaliacao" id="avaliacao">
+                <p>Avalie:</p>
+                <div class="star-rating">
+                    <input type="radio" id="5-stars" name="rating" value="5" />
+                    <label for="5-stars" class="star">&#9733;</label>
+                    <input type="radio" id="4-stars" name="rating" value="4" />
+                    <label for="4-stars" class="star">&#9733;</label>
+                    <input type="radio" id="3-stars" name="rating" value="3" />
+                    <label for="3-stars" class="star">&#9733;</label>
+                    <input type="radio" id="2-stars" name="rating" value="2" />
+                    <label for="2-stars" class="star">&#9733;</label>
+                    <input type="radio" id="1-star" name="rating" value="1" checked />
+                    <label for="1-star" class="star">&#9733;</label>
+                </div>
+            </div>
+            <button type="submit" class="btn" id='addCardSubimit'>Adicionar</button>
+            <button type="reset" class="btn cancelar" id='addCardCancel'>Cancelar</button>
+        </form>
+    </div>
+
+    <div class="modal grupo" id="grupo">
+        <H2>Grupo 1</H2>
+        <h3>Tema escolhido: <em>Locais de viagem </em></h3>
+        <h5>Estilização e recursos Adicionais</h5>
+        <p>Rodrigo Brasil
+            <a href="https://github.com/rodrigo-brasil" target="_blank"><i class="fab fa-github"></i></a>
+        </p>
+        <h5>Tema e código base</h5>
+        <p>Rodrigo Brasil
+        <a href="https://github.com/rodrigo-brasil" target="_blank"><i class="fab fa-github"></i></a>
+        </p>
+        <p>Breno
+            <a href="https://github.com/Brenex000006" target="_blank"><i class="fab fa-github"></i></a>
+        </p>
+        <p>Lucas Neiva
+            <a href="https://github.com/devlucasneiva" target="_blank"><i class="fab fa-github"></i></a>
+        </p>
+    </div>
+
+    <div class="modal login forms" id="login">
+        <h2>Entre com sua conta!</h2>
+        <form action="" autocomplete="off">
+            <div class="input-container">
+                <input type="email" id="username" name="username" placeholder=" ">
+                <label for="username">email</label>
+                <span class="error-message"></span>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" name="password" placeholder=" ">
+                <label for="password">senha</label>
+                <span class="error-message"></span>
+            </div>
+            <button type="submit" class="btn" id='loginSubmit'>Entrar</button>
+            <button type="reset" class="btn cancelar" id='loginCancel'>Cancelar</button>
+        </form>
+    </div>
+
+
+    <main>
+<!-- header -->
+        <header>
+            <h1>Meus Lugares <i class="fas fa-map-marked"></i></h1>
+            <div>
+                <div class="searchInputDiv">
+                    <input type="text" id="searchInput" class="searchInput" placeholder="Procurar...">
+                </div>
+                <div class="filter">
+                    <button class="filterBtn" id="filter"><i class="fa fa-filter"></i> Filtrar</button>
+                    <div class="filter-modal hidden" id="filterModal">
+                        <select id="filterSelect">
+                            <option value="-1" selected>Todos</option>
+                            <option value="0">Quero ir!</option>
+                            <option value="1">&#9733</option>
+                            <option value="2">&#9733&#9733</option>
+                            <option value="3">&#9733&#9733&#9733</option>
+                            <option value="4">&#9733&#9733&#9733&#9733</option>
+                            <option value="5">&#9733&#9733&#9733&#9733&#9733</option>
+                        </select>
+                        <button class="apply-button">Apply</button><button class="cancel-button">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- Cards container -->
+        <div class="cards-container" id='cards-container'></div>
+
+    </main>
+</body>
+
+</html>
